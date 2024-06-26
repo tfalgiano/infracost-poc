@@ -34,13 +34,17 @@ resource "aws_lambda_function" "my_hello_world" {
   }
 }
 
-resource "aws_s3_bucket" "example" {
-  bucket = "my-tf-test-bucket"
+resource "aws_instance" "my_web_app" {
+  ami           = "ami-005e54dee72cc1d00"
+
+  instance_type = "m5.xlarge" # <<<<<<<<<< Try changing this to m5.xlarge to compare the costs
 
   tags = {
-    Name        = "My bucket"
-    Environment = "Prod"
+    Environment = "production"
+    Service     = "web-app-2"
+  }
+
+  root_block_device {
+    volume_size = 1000 # <<<<<<<<<< Try adding volume_type="gp3" to compare costs
   }
 }
-
-
