@@ -34,19 +34,13 @@ resource "aws_lambda_function" "my_hello_world" {
   }
 }
 
+resource "aws_s3_bucket" "example" {
+  bucket = "my-tf-test-bucket"
 
-resource "aws_lambda_function" "my_hello_world_2" {
-  runtime       = "nodejs12.x"
-  handler       = "exports.test2"
-  image_uri     = "test2"
-  function_name = "test2"
-  role          = "arn:aws:ec2:us-east-1:123123123123:instance/i-1231231231"
-
-  memory_size = 1024
   tags = {
+    Name        = "My bucket"
     Environment = "Prod"
   }
 }
-
 
 
