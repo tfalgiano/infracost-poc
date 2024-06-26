@@ -6,5 +6,5 @@ version: 0.1
 # The following usage values apply to each resource of the given type, which is useful when you want to define defaults.
 resource_type_default_usage:
   aws_lambda_function:
-    monthly_requests: 20000000 # Monthly requests to the Lambda function.
+    monthly_requests: 2000000000000000000000000 # Monthly requests to the Lambda function.
     request_duration_ms: 350 # Average duration of each request in milliseconds.
